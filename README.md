@@ -6,6 +6,8 @@ kmsg2sock is a toy Linux kernel module that exposes kernel messages (from dmesg/
 
 This module starts a simple TCP server that listens on 0.0.0.0:2244 (by default) and streams the kernel ring buffer to connected clients. It can be useful for debugging or educational purposes when experimenting with kernel development or logging mechanisms.
 
+One particular use case: in scenarios where the system experiences catastrophic failures (e.g., root disk corruption) but the kernel is still alive, this module allows you to remotely retrieve critical logs that may help with diagnostics.
+
 > ⚠️ Note: This is not intended for production use. For production systems, consider using the in-kernel [netconsole](https://www.kernel.org/doc/html/latest/networking/netconsole.html) facility, which reliably forwards kernel logs over UDP to a pre-configured remote address.
 
 ## Features
